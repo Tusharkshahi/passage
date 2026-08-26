@@ -1,0 +1,79 @@
+{
+  "default": {
+    "required_fields": [
+      "patient_name", "patient_dob", "patient_gender", "patient_contact",
+      "patient_address", "pan_number",
+      "policy_number", "insurer_name", "tpa_name",
+      "hospital_name", "hospital_city", "hospital_email",
+      "doctor_name", "doctor_qualification", "doctor_registration_number",
+      "primary_diagnosis", "primary_icd10_code",
+      "proposed_procedure", "procedure_code",
+      "expected_stay_days",
+      "cost_room", "cost_surgeon", "cost_anesthesia", "cost_investigations", "cost_pharmacy",
+      "pre_existing_disease", "alcohol_drug_related"
+    ],
+    "optional_fields": ["secondary_diagnosis", "secondary_icd10_code", "ckyc_id", "other_insurance"]
+  },
+  "Medi Assist": {
+    "required_fields": [
+      "patient_name", "patient_dob", "patient_gender", "patient_contact", "patient_email",
+      "policy_number", "insurer_name",
+      "hospital_name", "hospital_city", "hospital_email",
+      "doctor_name", "doctor_qualification", "doctor_registration_number",
+      "primary_diagnosis", "primary_icd10_code",
+      "proposed_procedure", "procedure_icd10_pcs_code",
+      "expected_stay_days",
+      "cost_room", "cost_surgeon", "cost_anesthesia", "cost_ot", "cost_investigations", "cost_pharmacy",
+      "pre_existing_disease", "alcohol_drug_related"
+    ],
+    "optional_fields": ["secondary_diagnosis", "secondary_icd10_code", "patient_address", "pan_number"],
+    "portal": "https://www.mediassist.in"
+  },
+  "Star Health": {
+    "required_fields": [
+      "patient_name", "patient_dob", "patient_gender", "patient_contact",
+      "patient_address", "pan_number", "ckyc_id",
+      "policy_number", "insurer_name", "tpa_name",
+      "hospital_name", "hospital_city", "hospital_email",
+      "doctor_name", "doctor_qualification", "doctor_registration_number",
+      "primary_diagnosis", "primary_icd10_code",
+      "proposed_procedure", "procedure_code",
+      "expected_stay_days",
+      "cost_room", "cost_surgeon", "cost_anesthesia", "cost_ot", "cost_investigations",
+      "cost_pharmacy", "cost_consumables",
+      "pre_existing_disease", "alcohol_drug_related"
+    ],
+    "optional_fields": ["secondary_diagnosis", "other_insurance"],
+    "portal": "https://www.starhealth.in"
+  },
+  "Raksha TPA": {
+    "required_fields": [
+      "patient_name", "patient_dob", "patient_gender", "patient_contact",
+      "policy_number", "insurer_name",
+      "hospital_name", "hospital_city",
+      "doctor_name", "doctor_registration_number",
+      "primary_diagnosis", "primary_icd10_code",
+      "proposed_procedure", "procedure_code",
+      "expected_stay_days",
+      "cost_room", "cost_surgeon", "cost_anesthesia", "cost_investigations", "cost_pharmacy",
+      "pre_existing_disease"
+    ],
+    "optional_fields": ["secondary_diagnosis", "alcohol_drug_related", "pan_number", "cost_ot"],
+    "portal": "https://www.rakshatpa.com"
+  },
+  "MDIndia": {
+    "required_fields": [
+      "patient_name", "patient_dob", "patient_gender", "patient_contact",
+      "policy_number", "insurer_name", "tpa_name",
+      "hospital_name", "hospital_city", "hospital_email",
+      "doctor_name", "doctor_qualification", "doctor_registration_number",
+      "primary_diagnosis", "primary_icd10_code",
+      "proposed_procedure", "procedure_code",
+      "expected_stay_days",
+      "cost_room", "cost_surgeon", "cost_anesthesia", "cost_investigations", "cost_pharmacy",
+      "pre_existing_disease", "alcohol_drug_related"
+    ],
+    "optional_fields": ["pan_number", "ckyc_id", "cost_consumables"],
+    "portal": "https://www.mdindiaonline.com"
+  }
+}

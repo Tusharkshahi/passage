@@ -1,0 +1,81 @@
+{
+  "tier_cities": {
+    "A": ["Mumbai", "Delhi", "Bangalore", "Chennai", "Hyderabad", "Kolkata", "Pune", "Ahmedabad"],
+    "B": ["Jaipur", "Lucknow", "Nagpur", "Chandigarh", "Bhopal", "Kochi", "Indore", "Coimbatore", "Surat", "Vadodara"],
+    "C": []
+  },
+  "procedures": {
+    "0FB44ZZ": {
+      "name": "Laparoscopic cholecystectomy",
+      "stay_days_typical": 2,
+      "costs": {
+        "A": { "surgeon": 35000, "anesthesia": 8000, "ot": 12000, "room_per_day": 4000, "investigations": 6000, "pharmacy": 5000, "consumables": 3000 },
+        "B": { "surgeon": 25000, "anesthesia": 6000, "ot": 8000, "room_per_day": 2500, "investigations": 4000, "pharmacy": 3500, "consumables": 2000 },
+        "C": { "surgeon": 15000, "anesthesia": 4000, "ot": 5000, "room_per_day": 1500, "investigations": 3000, "pharmacy": 2500, "consumables": 1500 }
+      }
+    },
+    "0DTJ0ZZ": {
+      "name": "Appendectomy",
+      "stay_days_typical": 3,
+      "costs": {
+        "A": { "surgeon": 30000, "anesthesia": 7000, "ot": 10000, "room_per_day": 4000, "investigations": 5000, "pharmacy": 6000, "consumables": 2000 },
+        "B": { "surgeon": 20000, "anesthesia": 5000, "ot": 7000, "room_per_day": 2500, "investigations": 3500, "pharmacy": 4000, "consumables": 1500 },
+        "C": { "surgeon": 12000, "anesthesia": 3500, "ot": 4500, "room_per_day": 1500, "investigations": 2500, "pharmacy": 3000, "consumables": 1000 }
+      }
+    },
+    "0YQA0ZZ": {
+      "name": "Inguinal hernia repair",
+      "stay_days_typical": 2,
+      "costs": {
+        "A": { "surgeon": 30000, "anesthesia": 7000, "ot": 10000, "room_per_day": 3500, "investigations": 4000, "pharmacy": 4000, "consumables": 8000 },
+        "B": { "surgeon": 20000, "anesthesia": 5000, "ot": 7000, "room_per_day": 2200, "investigations": 3000, "pharmacy": 3000, "consumables": 5000 },
+        "C": { "surgeon": 12000, "anesthesia": 3500, "ot": 4500, "room_per_day": 1300, "investigations": 2000, "pharmacy": 2000, "consumables": 3000 }
+      }
+    },
+    "08RJ3JZ": {
+      "name": "Cataract surgery (phacoemulsification with IOL)",
+      "stay_days_typical": 1,
+      "costs": {
+        "A": { "surgeon": 20000, "anesthesia": 3000, "ot": 8000, "room_per_day": 3000, "investigations": 2000, "pharmacy": 2000, "consumables": 12000 },
+        "B": { "surgeon": 12000, "anesthesia": 2000, "ot": 5000, "room_per_day": 2000, "investigations": 1500, "pharmacy": 1500, "consumables": 8000 },
+        "C": { "surgeon": 8000, "anesthesia": 1500, "ot": 3000, "room_per_day": 1000, "investigations": 1000, "pharmacy": 1000, "consumables": 5000 }
+      }
+    },
+    "02110Z8": {
+      "name": "CABG (Coronary artery bypass graft)",
+      "stay_days_typical": 7,
+      "costs": {
+        "A": { "surgeon": 150000, "anesthesia": 30000, "ot": 50000, "room_per_day": 6000, "investigations": 25000, "pharmacy": 40000, "consumables": 60000 },
+        "B": { "surgeon": 100000, "anesthesia": 20000, "ot": 35000, "room_per_day": 4000, "investigations": 18000, "pharmacy": 30000, "consumables": 40000 },
+        "C": { "surgeon": 70000, "anesthesia": 15000, "ot": 25000, "room_per_day": 2500, "investigations": 12000, "pharmacy": 20000, "consumables": 28000 }
+      }
+    },
+    "0SRC0Z9": {
+      "name": "Total knee replacement",
+      "stay_days_typical": 5,
+      "costs": {
+        "A": { "surgeon": 60000, "anesthesia": 15000, "ot": 20000, "room_per_day": 5000, "investigations": 10000, "pharmacy": 15000, "consumables": 120000 },
+        "B": { "surgeon": 40000, "anesthesia": 10000, "ot": 14000, "room_per_day": 3500, "investigations": 7000, "pharmacy": 10000, "consumables": 90000 },
+        "C": { "surgeon": 28000, "anesthesia": 7000, "ot": 10000, "room_per_day": 2000, "investigations": 5000, "pharmacy": 7000, "consumables": 70000 }
+      }
+    },
+    "10D00Z0": {
+      "name": "Cesarean section (LSCS)",
+      "stay_days_typical": 4,
+      "costs": {
+        "A": { "surgeon": 40000, "anesthesia": 10000, "ot": 15000, "room_per_day": 4500, "investigations": 5000, "pharmacy": 8000, "consumables": 5000 },
+        "B": { "surgeon": 25000, "anesthesia": 7000, "ot": 10000, "room_per_day": 3000, "investigations": 3500, "pharmacy": 6000, "consumables": 3500 },
+        "C": { "surgeon": 15000, "anesthesia": 4500, "ot": 6000, "room_per_day": 1800, "investigations": 2500, "pharmacy": 4000, "consumables": 2500 }
+      }
+    },
+    "default": {
+      "name": "General surgical procedure",
+      "stay_days_typical": 3,
+      "costs": {
+        "A": { "surgeon": 30000, "anesthesia": 8000, "ot": 12000, "room_per_day": 4000, "investigations": 6000, "pharmacy": 7000, "consumables": 5000 },
+        "B": { "surgeon": 20000, "anesthesia": 5500, "ot": 8000, "room_per_day": 2500, "investigations": 4000, "pharmacy": 5000, "consumables": 3500 },
+        "C": { "surgeon": 12000, "anesthesia": 3500, "ot": 5000, "room_per_day": 1500, "investigations": 2500, "pharmacy": 3000, "consumables": 2000 }
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "_note": "SYNTHETIC DEMO DATA — not a real patient",
+  "scenario": "Emergency PTCA/angioplasty for acute coronary syndrome",
+  "prompt_for_agent": "Emergency admission. Patient Arun Mehta, 58M. HDFC Ergo policy HE-9034821. Diagnosis: acute coronary syndrome, needs coronary angioplasty with stent. Doctor: Dr. Sunita Krishnan, DM Cardiology, MH-78341. Hospital: Kokilaben Hospital, Mumbai. Emergency admission — pre-auth needed within 24 hours. Policy started March 2019. Sum insured: 10 lakh.",
+  "expected_outcome": {
+    "primary_icd10_code": "I25.10",
+    "procedure_code": "0DBW4ZZ",
+    "waiting_period_status": "CLEAR (emergency + policy > 5 years old)",
+    "estimated_total_inr": 285000,
+    "approval_gate_triggered": true
+  },
+  "synthetic_patient": {
+    "patient_name": "Arun Mehta",
+    "patient_dob": "1966-07-22",
+    "patient_gender": "Male",
+    "patient_contact": "9800000002",
+    "patient_email": "demo-arun@passage-demo.invalid",
+    "patient_address": "45 Demo Nagar, Mumbai, Maharashtra 400053",
+    "pan_number": "DEMO5678B",
+    "occupation": "Business Owner"
+  },
+  "synthetic_policy": {
+    "policy_number": "HE-9034821",
+    "insurer_name": "HDFC Ergo",
+    "tpa_name": "MDIndia",
+    "policy_start_date": "2019-03-10",
+    "sum_insured": 1000000,
+    "prior_claims": 0
+  },
+  "synthetic_hospital": {
+    "hospital_name": "Kokilaben Dhirubhai Ambani Hospital",
+    "hospital_city": "Mumbai",
+    "hospital_email": "insurance@kokilaben-demo.invalid",
+    "doctor_name": "Dr. Sunita Krishnan",
+    "doctor_qualification": "MBBS MD DM Cardiology",
+    "doctor_registration_number": "MH-78341"
+  }
+}

@@ -1,0 +1,107 @@
+[
+  {
+    "code": "0FB44ZZ",
+    "description": "Excision of Gallbladder, Percutaneous Endoscopic Approach",
+    "common_name": "Laparoscopic cholecystectomy",
+    "keywords": ["laparoscopic cholecystectomy", "lap chole", "gallbladder removal", "cholecystectomy"],
+    "compatible_diagnoses": ["K80", "K81"]
+  },
+  {
+    "code": "0DTJ0ZZ",
+    "description": "Resection of Appendix, Open Approach",
+    "common_name": "Appendectomy",
+    "keywords": ["appendectomy", "appendicectomy", "appendix removal", "laparoscopic appendectomy"],
+    "compatible_diagnoses": ["K37", "K35", "K36"]
+  },
+  {
+    "code": "0YQA0ZZ",
+    "description": "Repair Right Inguinal Region, Open Approach",
+    "common_name": "Inguinal hernia repair",
+    "keywords": ["hernia repair", "hernioplasty", "herniorrhaphy", "mesh hernia repair", "inguinal hernia repair"],
+    "compatible_diagnoses": ["K40", "K41", "K43"]
+  },
+  {
+    "code": "08RJ3JZ",
+    "description": "Replacement of Right Lens with Synthetic Substitute, Percutaneous Approach",
+    "common_name": "Cataract surgery (phacoemulsification with IOL)",
+    "keywords": ["cataract surgery", "phacoemulsification", "iol implant", "lens replacement", "phaco"],
+    "compatible_diagnoses": ["H25", "H26"]
+  },
+  {
+    "code": "02110Z8",
+    "description": "Bypass Coronary Artery, One from Left Internal Mammary, Open Approach",
+    "common_name": "Coronary artery bypass graft (CABG)",
+    "keywords": ["cabg", "bypass surgery", "heart bypass", "coronary bypass", "open heart surgery"],
+    "compatible_diagnoses": ["I25", "I21", "I20"]
+  },
+  {
+    "code": "0SRC0Z9",
+    "description": "Replacement of Right Knee Joint with Liner, Open Approach",
+    "common_name": "Total knee replacement (TKR)",
+    "keywords": ["knee replacement", "tkr", "total knee replacement", "knee arthroplasty"],
+    "compatible_diagnoses": ["M17"]
+  },
+  {
+    "code": "0SR90Z9",
+    "description": "Replacement of Right Hip Joint with Metal Synthetic Substitute, Open Approach",
+    "common_name": "Total hip replacement (THR)",
+    "keywords": ["hip replacement", "thr", "total hip replacement", "hip arthroplasty"],
+    "compatible_diagnoses": ["M16", "S72"]
+  },
+  {
+    "code": "10D00Z0",
+    "description": "Extraction of Products of Conception, Classical, Open Approach",
+    "common_name": "Cesarean section (LSCS)",
+    "keywords": ["cesarean section", "c-section", "lscs", "caesarean delivery"],
+    "compatible_diagnoses": ["O82", "O64", "O33", "O34"]
+  },
+  {
+    "code": "0UT90ZZ",
+    "description": "Resection of Uterus, Open Approach",
+    "common_name": "Hysterectomy",
+    "keywords": ["hysterectomy", "uterus removal", "total hysterectomy", "laparoscopic hysterectomy"],
+    "compatible_diagnoses": ["N80", "N83", "N92", "C54"]
+  },
+  {
+    "code": "0VT00ZZ",
+    "description": "Resection of Prostate, Open Approach",
+    "common_name": "Prostatectomy (TURP / radical)",
+    "keywords": ["prostatectomy", "turp", "prostate surgery", "radical prostatectomy"],
+    "compatible_diagnoses": ["N40", "C61"]
+  },
+  {
+    "code": "0SB00ZZ",
+    "description": "Excision of Lumbar Vertebral Joint, Open Approach",
+    "common_name": "Lumbar discectomy / laminectomy",
+    "keywords": ["discectomy", "laminectomy", "spine surgery", "lumbar surgery", "disc surgery"],
+    "compatible_diagnoses": ["M51", "M54", "G54"]
+  },
+  {
+    "code": "0RBW0ZZ",
+    "description": "Excision of Thoracic Vertebral Joint, Open Approach",
+    "common_name": "Spinal fusion",
+    "keywords": ["spinal fusion", "spine fusion", "vertebral fusion", "tlif", "plif"],
+    "compatible_diagnoses": ["M43", "M51"]
+  },
+  {
+    "code": "3E0234Z",
+    "description": "Introduction of Serum, Toxoid and Vaccine into Peripheral Vein, Percutaneous Approach",
+    "common_name": "Chemotherapy infusion",
+    "keywords": ["chemotherapy", "chemo infusion", "cancer treatment", "iv chemotherapy"],
+    "compatible_diagnoses": ["Z51", "C18", "C34", "C50", "C61"]
+  },
+  {
+    "code": "0DBW4ZZ",
+    "description": "Excision of Thoracic Aorta, Descending, Percutaneous Endoscopic Approach",
+    "common_name": "Angioplasty / stenting (PCI)",
+    "keywords": ["angioplasty", "pci", "stent", "ptca", "coronary stent", "balloon angioplasty"],
+    "compatible_diagnoses": ["I25", "I21", "I20"]
+  },
+  {
+    "code": "0BQT0ZZ",
+    "description": "Repair Diaphragm, Open Approach",
+    "common_name": "Thoracoscopic / laparoscopic surgery (general)",
+    "keywords": ["laparoscopy", "laparoscopic surgery", "diagnostic laparoscopy"],
+    "compatible_diagnoses": ["K80", "K40", "N83"]
+  }
+]

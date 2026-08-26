@@ -1,0 +1,38 @@
+{
+  "_note": "SYNTHETIC DEMO DATA — not a real patient",
+  "scenario": "Planned laparoscopic cholecystectomy for gallstones",
+  "prompt_for_agent": "New admission. Patient Priya Sharma, 45F. Star Health policy SH-2847629. Diagnosis: gallstones, needs laparoscopic cholecystectomy. Admitting doctor: Dr. Ramesh Nair, MBBS MS General Surgery, registration MH-45892. Hospital: Apollo Hospital, Mumbai. Estimated stay: 2 days. Sum insured: 5 lakh. Policy started January 2022.",
+  "expected_outcome": {
+    "primary_icd10_code": "K80.20",
+    "procedure_code": "0FB44ZZ",
+    "waiting_period_status": "CLEAR (policy > 24 months old)",
+    "estimated_total_inr": 74000,
+    "approval_gate_triggered": true
+  },
+  "synthetic_patient": {
+    "patient_name": "Priya Sharma",
+    "patient_dob": "1979-03-15",
+    "patient_gender": "Female",
+    "patient_contact": "9800000001",
+    "patient_email": "demo-priya@passage-demo.invalid",
+    "patient_address": "12 Demo Colony, Mumbai, Maharashtra 400001",
+    "pan_number": "DEMO1234A",
+    "occupation": "Teacher"
+  },
+  "synthetic_policy": {
+    "policy_number": "SH-2847629",
+    "insurer_name": "Star Health",
+    "tpa_name": "Medi Assist",
+    "policy_start_date": "2022-01-15",
+    "sum_insured": 500000,
+    "prior_claims": 0
+  },
+  "synthetic_hospital": {
+    "hospital_name": "Apollo Hospital",
+    "hospital_city": "Mumbai",
+    "hospital_email": "insurance@apollo-demo.invalid",
+    "doctor_name": "Dr. Ramesh Nair",
+    "doctor_qualification": "MBBS MS General Surgery",
+    "doctor_registration_number": "MH-45892"
+  }
+}
