@@ -50,15 +50,17 @@
     "required_fields": [
       "patient_name", "patient_dob", "patient_gender", "patient_contact",
       "policy_number", "insurer_name",
-      "hospital_name", "hospital_city",
-      "doctor_name", "doctor_registration_number",
+      "hospital_name", "hospital_city", "hospital_pin", "hospital_rohini_id",
+      "doctor_name", "doctor_qualification", "doctor_registration_number",
       "primary_diagnosis", "primary_icd10_code",
       "proposed_procedure", "procedure_code",
-      "expected_stay_days",
-      "cost_room", "cost_surgeon", "cost_anesthesia", "cost_investigations", "cost_pharmacy",
-      "pre_existing_disease"
+      "expected_stay_days", "room_type",
+      "cost_room", "cost_surgeon", "cost_anesthesia", "cost_ot",
+      "cost_investigations", "cost_pharmacy",
+      "pre_existing_disease", "alcohol_drug_related",
+      "maternity_related", "road_traffic_accident"
     ],
-    "optional_fields": ["secondary_diagnosis", "alcohol_drug_related", "pan_number", "cost_ot"],
+    "optional_fields": ["secondary_diagnosis", "pan_number", "cost_consumables", "cost_implants", "fir_number"],
     "portal": "https://www.rakshatpa.com"
   },
   "MDIndia": {
