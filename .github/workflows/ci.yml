@@ -32,4 +32,4 @@ jobs:
         run: pnpm --filter @passage/preauth-mcp lint
 
       - name: Tests
-        run: pnpm --filter @passage/preauth-mcp test --run
+        run: pnpm --filter @passage/preauth-mcp run test

@@ -159,6 +159,11 @@ function createMcpServer(): Server {
         name: 'finalize_preauth_package',
         description:
           'REQUIRES HUMAN APPROVAL. Locks and finalizes the pre-auth package for TPA submission. Produces a submission-ready document. This action is irreversible — it starts the IRDAI 1-hour approval clock once uploaded to the TPA portal.',
+        // Marks this tool as destructive so TrueForge shows the human-approval gate
+        annotations: {
+          destructiveHint: true,
+          title: 'Finalize Pre-Auth Package',
+        },
         inputSchema: {
           type: 'object',
           properties: {
@@ -317,7 +322,14 @@ if (httpMode) {
       const sessionId = transport.sessionId;
       transports.set(sessionId, transport);
 
+      // Send SSE keepalive comment every 25 s so the connection survives
+      // while the coordinator reads the summary before clicking Approve.
+      const keepalive = setInterval(() => {
+        if (!res.writableEnded) res.write(': keepalive\n\n');
+      }, 25_000);
+
       res.on('close', () => {
+        clearInterval(keepalive);
         transports.delete(sessionId);
       });
 
