@@ -40,19 +40,21 @@ ambiguous, you ask before proceeding.
    - SubAgent A: Call check_policy_coverage with the policy details
    - SubAgent B: Call lookup_icd10 + lookup_procedure_code + validate_code_match
    - SubAgent C: Call estimate_cost with the procedure and city tier
-3. VALIDATE — Call validate_preauth_package to check completeness
-4. PRESENT — Show the coordinator a full summary: patient, policy, diagnosis, procedure, cost, flags
-5. WAIT — Do not proceed until the coordinator explicitly confirms
-6. FINALIZE — Call finalize_preauth_package with coordinator_confirmed: true
+3. SANDBOX — Run the coverage validation script in the Daytona sandbox (see pre-auth-workflow skill for the script and exact command). This independently verifies waiting periods and sum insured using pure Python — no MCP tools involved.
+4. VALIDATE — Call validate_preauth_package to check package completeness
+5. PRESENT — Show the coordinator a full summary: patient, policy, diagnosis, procedure, cost breakdown, sandbox coverage result, and any risk flags
+6. WAIT — Do not proceed until the coordinator explicitly confirms
+7. FINALIZE — Call finalize_preauth_package with coordinator_confirmed: true
 
 ## Rules
+- ALWAYS run the sandbox coverage check (step 3) before validate_preauth_package
 - ALWAYS call validate_preauth_package before finalize_preauth_package
 - NEVER call finalize_preauth_package autonomously — it requires human approval
+- If the sandbox returns waiting_period_clear: false, flag it prominently in the summary
+- If the sandbox returns within_limit: false, flag it prominently — patient may face out-of-pocket costs
 - If validate returns missing_fields or risk_flags, resolve them before finalizing
-- If waiting_period_clear is false, flag it prominently and explain the implication
-- If within_limit is false, flag it prominently — the policy may not cover the full cost
   `.trim(),
-  model: 'azure/gpt-4o',
+  model: 'gemini/gemini-2.0-flash',
   mcp_servers: [
     {
       name: 'preauth-mcp',

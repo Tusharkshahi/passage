@@ -24,43 +24,7 @@ In **May 2024**, IRDAI mandated:
 - Insurer pays **₹5,000/day** penalty for delays
 - Incomplete submissions from hospitals are the #1 cause of missed deadlines
 
-## Setup
-
-### Prerequisites
-
-- Node.js 22+ (`node -v`)
-- pnpm 9+ (`pnpm -v`)
-- Azure OpenAI API key
-- Daytona account (daytona.io)
-
-### Install
-
-```bash
-git clone https://github.com/Tusharkshahi/passage.git
-cd passage
-pnpm install
-pnpm build
-```
-
-### Configure
-
-```bash
-cp .env.example .env
-# Then configure Azure OpenAI and Daytona in TrueForge Settings
-```
-
-### Run
-
-```bash
-# Start TrueForge
-npx @truefoundry/trueforge
-
-# In another terminal, start the MCP server
-node packages/preauth-mcp/dist/index.js
-```
-
-Open TrueForge at http://localhost:8790, add `preauth-mcp` as a local MCP connector,
-and start a new Passage session.
+Passage handles the 30-minute assembly in under 2 minutes.
 
 ---
 
@@ -70,7 +34,7 @@ and start a new Passage session.
 Hospital Coordinator (TrueForge chat)
          │
          ▼
-    Passage Agent (GPT-4o via Azure)
+    Passage Agent (LLM via TrueForge)
          │
     ┌────┴────┐─────────────────────┐
     │         │                     │
@@ -84,13 +48,13 @@ _coverage     lookup_procedure     (preauth-mcp)
          │
   Daytona sandbox
   coverage_check.py
-  (waiting period + sum insured)
+  (waiting period + sum insured — isolated Python)
          │
   validate_preauth_package
   (23-field completeness check)
          │
   ┌──────▼──────┐
-  │ APPROVAL    │  ← coordinator reviews
+  │  APPROVAL   │  ← coordinator reviews
   │    GATE     │
   └──────┬──────┘
          │ approved
@@ -110,39 +74,102 @@ _coverage     lookup_procedure     (preauth-mcp)
 | `check_policy_coverage` | Waiting periods, sub-limits, sum insured | No |
 | `estimate_cost` | Itemised cost by procedure, city, hospital tier | No |
 | `validate_preauth_package` | 23-field completeness check | No |
-| `finalize_preauth_package` | Locks package for TPA submission | **Yes** |
+| `finalize_preauth_package` | Locks package for TPA submission | **Yes — human approval required** |
+
+---
+
+## Setup
+
+### Prerequisites
+
+- Node.js 22+ and pnpm 9+
+- A TrueForge-supported model API key (OpenAI, Gemini, Anthropic, or Azure OpenAI)
+- Daytona account ([daytona.io](https://daytona.io)) for sandbox execution
+
+### Install
+
+```bash
+git clone https://github.com/Tusharkshahi/passage.git
+cd passage
+pnpm install
+pnpm build
+```
+
+### Run
+
+**Terminal 1 — TrueForge:**
+```bash
+npx @truefoundry/trueforge
+```
+Open http://localhost:8790
+
+**Terminal 2 — preauth-mcp in HTTP/SSE mode:**
+```bash
+node packages/preauth-mcp/dist/index.js --http --port 3001
+```
+
+### Configure TrueForge
+
+1. **Settings → Models** → Add your model provider (Gemini, OpenAI, etc.)
+2. **Settings → Connectors → Add MCP Server**
+   - URL: `http://localhost:3001/sse`
+   - Name: `preauth-mcp`, Auth: None
+3. **Settings → Sandbox providers** → Add Daytona with your API key
+4. **New Agent** → paste instructions from `src/agent/passage.ts`, attach `preauth-mcp`, enable Sandbox + Sub-agents
 
 ---
 
 ## Demo
 
-Try this prompt in the Passage TrueForge session:
+Paste this into a Passage chat session:
 
 > *"New admission. Patient Priya Sharma, 45F. Star Health policy SH-2847629. Gallstones,
 > needs laparoscopic cholecystectomy. Doctor: Dr. Ramesh Nair, MBBS MS General Surgery,
 > MH-45892. Hospital: Apollo Hospital, Mumbai. Estimated stay: 2 days. Policy started
 > January 2022. Sum insured 5 lakh."*
 
-See `demo/case-1-cholecystectomy.json` for the full case with expected outputs.
+What happens:
+1. Agent asks any missing clarifying questions
+2. Three subagents fan out in parallel (coverage check, ICD-10 coding, cost estimation)
+3. Daytona sandbox runs `coverage_check.py` — verifies waiting periods and sum insured
+4. `validate_preauth_package` confirms all 23 fields are present
+5. Coordinator reviews the full summary
+6. On confirmation, `finalize_preauth_package` fires — **approval gate visible in Agent Steps**
+
+See `demo/case-1-cholecystectomy.json` and `demo/case-2-cardiac-emergency.json` for full test cases.
 
 ---
 
 ## Development
 
 ```bash
-pnpm test          # Run all tests (25 tests)
-pnpm typecheck     # TypeScript type check
-pnpm lint          # ESLint v10
-pnpm build         # Compile TypeScript
+pnpm test           # Run all unit tests (25 tests across 4 files)
+pnpm typecheck      # TypeScript type check (root + preauth-mcp)
+pnpm lint           # ESLint v10 across workspace
+pnpm build          # Compile TypeScript
 ```
 
-See [AGENTS.md](AGENTS.md) for the full developer reference.
+See [AGENTS.md](AGENTS.md) for the full developer and agent reference.
+
+---
+
+## Skills
+
+| Skill | Purpose |
+|-------|---------|
+| `pre-auth-workflow` | Full workflow SOP + sandbox coverage script |
+| `tpa/medi-assist` | Medi Assist specific fields and rejection reasons |
+| `tpa/star-health` | Star Health specific fields and rejection reasons |
+| `tpa/raksha-tpa` | Raksha TPA specific fields, ROHINI ID, implant sub-process |
+| `clinical/common-procedures` | Common surgical procedures with typical costs and ICD-10 codes |
 
 ---
 
 ## Qodo Code Review Evidence
 
-*(PR links added here as branches are merged)*
+| PR | Description | Qodo Review |
+|----|-------------|-------------|
+| *(links added as PRs are opened and reviewed)* | | |
 
 ---
 
